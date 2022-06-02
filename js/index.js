@@ -4,27 +4,31 @@
 // I want to create a function to represent this game.
 
 function diceRoll() {
+  // randomize the dice
   let diceArray = [1, 2, 3, 4, 5, 6]
-  let firstDie = ""
-  firstDie = diceArray[Math.floor(Math.random() * 6)]
-  let secondDie = diceArray[Math.floor(Math.random() * 6)]
-  console.log(`This is the first die ${firstDie}`)
-  console.log(`This is the first die ${secondDie}`)
+  let firstDice = diceArray[Math.floor(Math.random() * 6)]
+  let secondDice = diceArray[Math.floor(Math.random() * 6)]
+  // change the image
+  let diceOneImage = document.getElementById("dice1")
+  diceOneImage.src = `images/dice${firstDice}.png`
+  let diceTwoImage = document.getElementById("dice2")
+  diceTwoImage.src = `images/dice${secondDice}.png`
+  // communicate the winner
+  if (firstDice == secondDice) {
+    console.log("it's a tie")
+  } else if (firstDice> secondDice) {
+    console.log("first is the winner")
+  } else {
+    console.log("second is the winner")
+  }
+  
   return {
-      first: firstDie,
-      second: secondDie
+    // could return data here to make it persist
+      first: firstDice,
+      second: secondDice
   }
 
 }
+let die = diceRoll()
+document.getElementById("roll").addEventListener("click", diceRoll)
 
-let diceGame = diceRoll()
-
-
-if (diceGame.first == diceGame.second) {
-  console.log("it's a tie")
-} 
-else if (diceGame.first > diceGame.second) {
-  console.log("first is the winner")
-} else {
-  console.log("second is the winner")
-}
