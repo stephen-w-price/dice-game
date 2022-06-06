@@ -1,7 +1,5 @@
 // Dice Game
 
-// Create two variables to represent the dice.
-// I want to create a function to represent this game.
 
 function diceRoll() {
   // randomize the dice
@@ -15,20 +13,19 @@ function diceRoll() {
   diceTwoImage.src = `images/dice${secondDice}.png`
   // communicate the winner
   if (firstDice == secondDice) {
-    console.log("it's a tie")
+    console.log(`The first dice rolled a ${firstDice} and second dice rolled a ${secondDice} - it's a tie`)
   } else if (firstDice> secondDice) {
-    console.log("first is the winner")
+    console.log(`The first dice rolled a ${firstDice} and second dice rolled a ${secondDice} - first is the winner`)
   } else {
-    console.log("second is the winner")
+    console.log(`The first dice rolled a ${firstDice} and second dice rolled a ${secondDice} - second is the winner`)
   }
-  
   return {
-    // could return data here to make it persist
+    // could return data here to make data persist
       first: firstDice,
       second: secondDice
   }
-
 }
-let die = diceRoll()
+
+
 document.getElementById("roll").addEventListener("click", diceRoll)
 
